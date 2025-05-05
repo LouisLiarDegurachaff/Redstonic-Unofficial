@@ -4,6 +4,7 @@ import com.raizunne.redstonic.Item.IRecipes.ContainerSet;
 import com.raizunne.redstonic.Item.IRecipes.EnergeticBattery;
 import com.raizunne.redstonic.Item.IRecipes.HotswapSet;
 import com.raizunne.redstonic.Util.EIOHelper;
+import com.raizunne.redstonic.Util.NBTShapedOreRecipe;
 import com.raizunne.redstonic.Util.TEHelper;
 import com.raizunne.redstonic.Util.Util;
 import cpw.mods.fml.common.Loader;
@@ -290,18 +291,58 @@ public class RedstonicRecipes {
             ItemStack basicBattery = new ItemStack(RedstonicItems.basicBattery);
             basicBattery.setItemDamage(OreDictionary.WILDCARD_VALUE);
 
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RedstonicItems.energizedBattery),
+            GameRegistry.addRecipe(new NBTShapedOreRecipe(new ItemStack(RedstonicItems.energizedBattery),
                     " R ",
-                    "SCS",
-                    "RAR", 'R', "blockRedstone", 'S', "ingotEnergeticAlloy", 'C', "blockPhasedIron", 'A', basicBattery));
+                            "SCS",
+                            "RAR",
+                'R', "blockRedstone",
+                'S', "ingotEnergeticAlloy",
+                'C', "blockPhasedIron",
+                'A', basicBattery)
+                .allowNBTFrom(RedstonicItems.basicBattery)
+                .allowTags("Energy")
+            );
+
+            GameRegistry.addRecipe(new NBTShapedOreRecipe(new ItemStack(RedstonicItems.energizedBattery),
+                " R ",
+                "SCS",
+                "RAR",
+                'R', "blockRedstone",
+                'S', "ingotEnergeticAlloy",
+                'C', "blockConductiveIron",
+                'A', basicBattery)
+                .allowNBTFrom(RedstonicItems.basicBattery)
+                .allowTags("Energy")
+            );
 
             ItemStack energizedBattery = new ItemStack(RedstonicItems.energizedBattery);
             energizedBattery.setItemDamage(OreDictionary.WILDCARD_VALUE);
 
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RedstonicItems.greatBattery),
+            GameRegistry.addRecipe(
+                new NBTShapedOreRecipe(new ItemStack(RedstonicItems.greatBattery),
                     " R ",
                     "SCS",
-                    "RAR", 'R', "blockRedstone", 'S', RedstonicItems.ingotGlowSteel, 'C', "blockPhasedGold" , 'A', energizedBattery));
+                    "RAR",
+                    'R', "blockRedstone",
+                    'S', RedstonicItems.ingotGlowSteel,
+                    'C', "blockPhasedGold",
+                    'A', energizedBattery)
+                    .allowNBTFrom(RedstonicItems.energizedBattery)
+                    .allowTags("Energy")
+            );
+
+
+            GameRegistry.addRecipe(new NBTShapedOreRecipe(new ItemStack(RedstonicItems.greatBattery),
+                " R ",
+                "SCS",
+                "RAR",
+                'R', "blockRedstone",
+                'S', RedstonicItems.ingotGlowSteel,
+                'C', "blockVibrantAlloy" ,
+                'A', energizedBattery)
+                .allowNBTFrom(RedstonicItems.energizedBattery)
+                .allowTags("Energy")
+            );
 
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(RedstonicItems.EnergyAugment), new Object[]{
                     "III",

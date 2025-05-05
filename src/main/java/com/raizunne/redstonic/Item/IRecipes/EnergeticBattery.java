@@ -28,6 +28,12 @@ public class EnergeticBattery implements IRecipe {
                 return true;
             }
         }
+        if(slot(0)==null && slot(1)==slot(6) && slot(6)==slot(8) && slot(8)==new ItemStack(Blocks.redstone_block) &&
+            slot(3)== OreDictionary.getOres("ingotEnergeticAlloy").get(0) && slot(5)==slot(3) && slot(4)==OreDictionary.getOres("blockConductiveIron").get(0) && slot(7).getItem() instanceof ItemBattery){
+            if(slot(7).getItem()== RedstonicItems.basicBattery){
+                return true;
+            }
+        }
         return false;
     }
 
