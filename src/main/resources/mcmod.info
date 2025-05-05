@@ -1,0 +1,16 @@
+[
+  {
+    "modid":"${modId}",
+    "name":"${modName}",
+    "description": "Several tools and blocks that use RF",
+    "version":"${modVersion}",
+    "mcversion":"${minecraftVersion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": ["Raizunne"],
+    "credits": "Everyone that helped me on the MinecraftForge Forums!",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
